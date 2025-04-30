@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Option Pricing App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+    <script src="debug.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Option Pricing (Black-Scholes Model)</h1>
+        <div class="inputs">
+            <label>Stock Price: <input type="number" id="stockPrice" value="100"></label>
+            <label>Strike Price: <input type="number" id="strikePrice" value="100"></label>
+            <label>Expiration Date: <input type="date" id="expirationDate"></label>
+            <label>Interim Date: <input type="date" id="interimDate"></label>
+            <label>Interim Stock Price: <input type="number" id="interimStockPrice" value="100"></label>
+            <label>Option Type: 
+                <select id="optionType">
+                    <option value="call">Call</option>
+                    <option value="put">Put</option>
+                </select>
+            </label>
+            <label>Risk-Free Rate (%): <input type="number" id="riskFreeRate" value="5"></label>
+            <label>Volatility (%): <input type="number" id="volatility" value="20"></label>
+            <button class="calculate-btn" onclick="calculateOption()">Calculate</button>
+        </div>
+        <div class="results">
+            <p>Option Price: <span id="optionPrice">--</span></p>
+            <p>Delta: <span id="delta">--</span></p>
+            <p>Gamma: <span id="gamma">--</span></p>
+            <p>Theta: <span id="theta">--</span></p>
+            <p>Vega: <span id="vega">--</span></p>
+            <p>Rho: <span id="rho">--</span></p>
+            <p>Interim Option Price: <span id="interimOptionPrice">--</span></p>
+        </div>
+        <div class="chart">
+            <h3>Option Price Trajectory</h3>
+            <canvas id="priceChart" width="800" height="500"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

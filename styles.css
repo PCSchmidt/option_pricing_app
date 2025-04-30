@@ -1,0 +1,237 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+    color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(0,80,120,0.05)"/></svg>'), 
+                      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,100 L100,0 L0,0 Z" fill="rgba(20,70,80,0.03)"/></svg>');
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: #ffd700;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border-bottom: 2px solid #444;
+    padding-bottom: 15px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 60px auto;
+    background: #1e1e1e;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,215,0,0.1);
+    border-radius: 15px;
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to right, #1e1e1e, #ffd700, #1e1e1e);
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.inputs label {
+    display: block;
+    margin: 5px 0;
+    font-weight: 600;
+    color: #f5f5f5;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.inputs input, .inputs select {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    color: #f5f5f5;
+    border-radius: 5px;
+    font-size: 18px; /* Increased for better visibility */
+    transition: all 0.3s ease;
+}
+
+/* Date input enhancements */
+input[type="date"] {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #ffd700;
+    padding: 12px;
+    font-size: 18px;
+    /* Style calendar icon */
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23ffd700' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px 20px;
+}
+
+.inputs input:focus, .inputs select:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.results {
+    margin-top: 40px;
+    background: linear-gradient(to right, #2c2c2c, #333, #2c2c2c);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #444;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.results p {
+    margin: 15px 0;
+    font-size: 16px;
+    color: #aaa;
+}
+
+.results span {
+    display: block;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffd700;
+    margin-top: 5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Enhanced Calculate Button */
+.calculate-btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 24px;
+    background: linear-gradient(to bottom, #ffd700, #e5c100);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.calculate-btn:hover {
+    background: linear-gradient(to bottom, #ffdf4d, #ffd700);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.calculate-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.calculate-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(30deg);
+    transition: transform 0.3s ease;
+}
+
+.calculate-btn:hover::after {
+    transform: rotate(30deg) translate(10%, 10%);
+}
+
+.chart {
+    margin-top: 40px;
+    padding: 30px;
+    background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+    border: 1px solid #ffd700;
+    border-radius: 10px;
+    min-height: 500px;
+    position: relative;
+}
+
+.chart h3 {
+    color: #ffd700;
+    text-align: center;
+    margin-top: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+canvas#priceChart {
+    width: 100% !important;
+    height: 500px !important;
+    background: #222;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    display: block !important;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* Add subtle shadow for better visibility */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .inputs {
+        grid-template-columns: 1fr;
+    }
+    
+    .results {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .chart {
+        padding: 15px;
+    }
+    
+    canvas#priceChart {
+        height: 350px !important;
+    }
+}
+
+/* Add some subtle animation for the results */
+@keyframes highlight {
+    0% { color: #fff; }
+    50% { color: #ffd700; }
+    100% { color: #fff; }
+}
+
+.results span {
+    animation: highlight 1s ease-in-out 1;
+}
