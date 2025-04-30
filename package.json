@@ -1,0 +1,45 @@
+{
+  "name": "option-pricing-app",
+  "version": "1.0.0",
+  "description": "Option pricing calculator with Black-Scholes model and visualization",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000",
+    "amplify-init": "amplify init",
+    "amplify-add-hosting": "amplify add hosting",
+    "amplify-add-auth": "amplify add auth",
+    "amplify-publish": "amplify publish",
+    "deploy": "npm run amplify-publish"
+  },
+  "keywords": [
+    "options",
+    "finance",
+    "black-scholes",
+    "derivatives",
+    "trading"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "amplify": {
+    "projectName": "optionpricingapp",
+    "framework": "none",
+    "frontend": "javascript",
+    "javascript": {
+      "framework": "none",
+      "config": {
+        "BuildCommand": "echo 'No build required'",
+        "StartCommand": "http-server -p 8000",
+        "DistributionDir": "./"
+      }
+    }
+  }
+}
